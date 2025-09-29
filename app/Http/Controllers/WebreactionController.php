@@ -76,9 +76,6 @@ class WebreactionController extends Controller
 
     public function store(Request $request)
     {
-        Log::info('Webreaction store method called');
-        Log::info('Request data:', $request->all());
-
         // Validate the incoming request
         $validated = $request->validate([
             'lead_type_id' => 'required|int',
@@ -129,8 +126,6 @@ class WebreactionController extends Controller
             'user' => $userData
         ];
 
-        Log::info('Final request data prepared:', $requestData);
-
         // Call the service to store data via the external API
         try {
             $success = false;
@@ -154,10 +149,8 @@ class WebreactionController extends Controller
                     'user' => $userData
                 ];
                 $response = $this->webreactionService->storeData($requestMail);
-                Log::info('Confirmation email response:', $response);
             } else if ($response['register_webreaction']['error']) {
                 $messages = $response['register_webreaction']['validate'];
-                Log::error('Registration failed:', $messages);
             }
 
             // return success response

@@ -576,7 +576,7 @@ export default {
                 .post(apiURL, postData)
                 .then((response) => {
                     console.log("Data sent successfully:", response.data);
-                    //this.trackConversion();
+                    this.trackConversion();
                     this.currentStep = 5;
                     this.$nextTick(() => {
                         this.scrollToTop();
