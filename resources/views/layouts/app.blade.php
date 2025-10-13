@@ -7,7 +7,15 @@
     <title>@yield('title', 'Letselschadetest - Direct uw letselschade claimen')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10859171119"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-10859171119'); </script> 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10859171119"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10859171119');
+    </script>
 
 </head>
 <body class="antialiased bg-gray-50">
