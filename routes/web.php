@@ -5,10 +5,9 @@ use App\Http\Controllers\AccidentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\WebreactionController;
+use App\Http\Controllers\ReviewsController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ReviewsController::class, 'welcome']);
 
 Route::get('/verkeersongeval', [AccidentController::class, 'verkeersongeval'])->name('verkeersongeval');
 Route::get('/bedrijfsongeval', [AccidentController::class, 'bedrijfsongeval'])->name('bedrijfsongeval');
@@ -26,3 +25,5 @@ Route::post('/webreactie', [WebreactionController::class, 'store'])->name('webre
 Route::get('/algemene-voorwaarden', function () {
     return view('pages.algemene-voorwaarden');
 })->name('algemene-voorwaarden');
+
+Route::get('/klantbeoordelingen', [ReviewsController::class, 'index'])->name('reviews');

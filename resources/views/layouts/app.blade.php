@@ -81,6 +81,7 @@
                         <a href="{{ route('bedrijfsongeval') }}" class="text-sm font-medium text-gray-300 hover:text-white">Bedrijfsongeval</a>
                         <a href="{{ route('ongeval-door-dieren') }}" class="text-sm font-medium text-gray-300 hover:text-white">Ongeval door dieren</a>
                         <a href="{{ route('ongeval-door-wegdek') }}" class="text-sm font-medium text-gray-300 hover:text-white">Gebrek wegdek</a>
+                        <a href="{{ route('reviews') }}" class="text-sm font-medium text-gray-300 hover:text-white">Klantbeoordelingen</a>
                         <a href="{{ route('contact') }}" class="text-sm font-medium text-gray-300 hover:text-white">Contact</a>
                     </div>
                 </div>
@@ -95,6 +96,7 @@
                 <a href="{{ route('bedrijfsongeval') }}" class="block text-base font-medium text-gray-300 hover:text-white py-1 transition-colors duration-200">Bedrijfsongeval</a>
                 <a href="{{ route('ongeval-door-dieren') }}" class="block text-base font-medium text-gray-300 hover:text-white py-1 transition-colors duration-200">Ongeval door dieren</a>
                 <a href="{{ route('ongeval-door-wegdek') }}" class="block text-base font-medium text-gray-300 hover:text-white py-1 transition-colors duration-200">Gebrek wegdek</a>
+                <a href="{{ route('reviews') }}" class="block text-base font-medium text-gray-300 hover:text-white py-1 transition-colors duration-200">Klantbeoordelingen</a>
                 <a href="{{ route('contact') }}" class="block text-base font-medium text-gray-300 hover:text-white py-1 transition-colors duration-200">Contact</a>
             </div>
         </div>
@@ -147,6 +149,7 @@
                         <li><a href="{{ route('bedrijfsongeval') }}" class="text-gray-300 hover:text-white transition-colors">Bedrijfsongeval</a></li>
                         <li><a href="{{ route('ongeval-door-dieren') }}" class="text-gray-300 hover:text-white transition-colors">Ongeval door dieren</a></li>
                         <li><a href="{{ route('ongeval-door-wegdek') }}" class="text-gray-300 hover:text-white transition-colors">Gebrek wegdek</a></li>
+                        <li><a href="{{ route('reviews') }}" class="text-gray-300 hover:text-white transition-colors">Klantbeoordelingen</a></li>
                         <li><a href="{{ route('contact') }}" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>

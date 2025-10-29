@@ -163,5 +163,147 @@
             </div>
         </div>
     </div>
+
+    <!-- Reviews Slider Section -->
+    <div class="bg-gray-50 py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:text-center mb-12">
+                <h2 class="text-base font-heading font-semibold leading-7 text-blue-600">Wat zeggen onze klanten?</h2>
+                <p class="mt-2 text-3xl font-heading font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    Klantbeoordelingen
+                </p>
+            </div>
+            
+            <!-- Swiper -->
+            <div class="swiper reviewsSwiper">
+                <div class="swiper-wrapper">
+                    @foreach(array_chunk($reviews, 2) as $chunk)
+                    <div class="swiper-slide">
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                            @foreach($chunk as $review)
+                            <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">
+                                            {{ $review['name'] }}
+                                        </h3>
+                                        <p class="text-sm text-gray-500 mt-1">
+                                            {{ $review['date'] }}
+                                        </p>
+                                    </div>
+                                    <div class="flex text-yellow-400">
+                                        @for($i = 0; $i < 5; $i++)
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed">
+                                    "{{ $review['comment'] }}"
+                                </p>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="{{ route('reviews') }}" class="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200">
+                    Bekijk alle beoordelingen
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+@push('scripts')
+<!-- Swiper JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.reviewsSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 1,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    });
+</script>
+
+<style>
+    .reviewsSwiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #2563eb;
+        background: white;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+        background: #2563eb;
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .swiper-pagination-bullet {
+        background: #2563eb;
+        opacity: 0.3;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+</style>
+@endpush
 @endsection 
